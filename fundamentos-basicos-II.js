@@ -74,10 +74,10 @@ impares seguidos, imprime(print) “¡Qué imparcial!”, y cada vez que tenga 3
 imprime(print) “¡Es para bien!”.*/
 function parImpar(arr) {
     for (i = 0; i < arr.length; i++) {
-        if (arr[i] % 2 == 1 && arr[i + 1] % 2 == 1 && arr[i + 2] % 2 ==1) {
+        if (arr[i] % 2 == 1 && arr[i + 1] % 2 == 1 && arr[i + 2] % 2 == 1) {
             console.log("¡Qué imparcial!")
         }
-        if (arr[i] % 2 == 0 && arr[i + 1] % 2 == 0 && arr[i + 2] % 2 ==0) {
+        if (arr[i] % 2 == 0 && arr[i + 1] % 2 == 0 && arr[i + 2] % 2 == 0) {
             console.log("¡Es para bien!")
         }
     }
@@ -94,13 +94,16 @@ function incremImpar(arr) {
     return arr
 }
 
-TODO:/* 8. Longitudes previas - Pasado un array(similar a decir ‘tomado un array’ o ‘dado un array’) que
+/* 8. Longitudes previas - Pasado un array(similar a decir ‘tomado un array’ o ‘dado un array’) que
 contiene strings, reemplaza cada string con un número de acuerdo cantidad de letras(longitud) del
 string anterior.Por ejemplo, longitudesPrevias([“programar”, “dojo”, “genial”]) debería devolver
 [“programar”, 9, 4].Pista: ¿For loops solo puede ir hacia adelante ? */
 function cambiaString(arr) {
-    for (i = arr.length - 1; i < arr.length; i--) {
-        arr[i] = arr.length[i--];
+    for (i = arr.length - 1; i >= 1; i--) {
+        var string_anterior = arr[i - 1];
+        var largo_anterior = string_anterior.length;
+
+        arr[i] = largo_anterior;
     }
     return arr;
 }
@@ -148,14 +151,29 @@ function hungry(arr) {
         if (arr[i] == "comida") {
             console.log("yummy");
         } else {
-            for (i = 0; i < arr.length; i++) {
-                
-            }
             console.log("tengo hambre")
         }
     }
 }
 
-Cambiar hacia el centro - Dado un array, cambia el primer y último valor, el tercero con el ante penútimo, etc.Ejemplo: cambiaHaciaElCentro([true, 42, “Ada”, 2, “pizza”]) cambia el array a[“pizza¨, 42, “Ada”, true].cambiaHaciaElCentro([1, 2, 3, 4, 5, 6]) cambia el array a[6, 2, 4, 3, 5, 1].No es necesario devolver(return) el array esta vez.
+TODO: /* 13. Cambiar hacia el centro - Dado un array, cambia el primer y último valor, el tercero con el ante penútimo, etc.
+Ejemplo: cambiaHaciaElCentro([true, 42, “Ada”, 2, “pizza”]) cambia el array a[“pizza¨, 42, “Ada”, true].cambiaHaciaElCentro([1, 2, 3, 4, 5, 6])
+cambia el array a[6, 2, 4, 3, 5, 1].No es necesario devolver(return) el array esta vez. */
+function cambiaCentro(arr) {
+    for (i = 0; i < arr.length / 2; i += 2) {
+        var izquierda = arr[i]
+        var derecha = arr [arr.length - 1]
+        arr[izquierda] = arr[derecha];
+        arr[derecha] = arr[izquieda];
+    }
+}
 
-Escala el Array - Dado un array arr y un número num, multiplica todos los valores en el array arr por el número num, y devuelve el array arr modificado.Por ejemplo, escalaArray([1, 2, 3], 3]debería devolver[3, 6, 9].
+/* 14. Escala el Array - Dado un array arr y un número num, multiplica todos los valores en el array arr por el número num,
+y devuelve el array arr modificado.Por ejemplo, escalaArray([1, 2, 3], 3]debería devolver[3, 6, 9]. */
+function escalaArray(arr, num) {
+    var escalado = [];
+    for (i = 0; i < arr.length; i++) {
+        arr[i] *= num;
+    }
+    return arr;
+}
